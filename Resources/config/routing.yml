@@ -1,0 +1,23 @@
+chessy_web_guest_book_homepage:
+    pattern:  /livredor
+    defaults: { _controller: ChessyWebGuestBookBundle:Public:index }
+
+chessy_web_guest_book_add:
+    pattern:  /livredor/ajouter
+    defaults: { _controller: ChessyWebGuestBookBundle:Public:add }
+
+chessy_web_guest_book_admin_index:
+    pattern:  /admin/livredor
+    defaults: { _controller: ChessyWebGuestBookBundle:Admin:index }
+
+chessy_web_guest_book_admin_delete:
+    pattern:  /admin/livredor/delete/{id}
+    defaults: { _controller: ChessyWebGuestBookBundle:Admin:delete }
+    requirements:
+        id:   \d+
+
+chessy_web_guest_book_admin_toggle:
+    pattern:  /admin/livredor/toggle/{id}
+    defaults: { _controller: ChessyWebGuestBookBundle:Admin:toggle }
+    requirements:
+        id:   \d+

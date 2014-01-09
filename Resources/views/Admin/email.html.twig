@@ -1,0 +1,7 @@
+<div style="border: 1px black solid; padding: 10px;">
+	Ceci est un message automatique envoy&eacute; par le site www.the-chessy-cat.fr.<br/><br/>
+	Le message ci-dessous a été d&eacute;pos&eacute; par {{ message.author }}<br/>
+	Vous pouvez le valider ou le supprimer en suivant ce lien : <a href="{{ path('chessy_web_guest_book_admin_index') }}">Page de validation</a>
+</div>
+<br/>
+{{ message.message|nl2br }}

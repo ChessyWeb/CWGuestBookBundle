@@ -1,0 +1,62 @@
+{% extends "ChessyWebGuestBookBundle::layout.html.twig" %}
+
+{% block content %}
+    {% for flashMessage in app.session.flashbag.get('success') %}
+        <div class="alert alert-success">
+            {{ flashMessage }}
+        </div>
+    {% endfor %}
+    {% for flashMessage in app.session.flashbag.get('info') %}
+        <div class="alert alert-info">
+            {{ flashMessage }}
+        </div>
+    {% endfor %}
+    {% for flashMessage in app.session.flashbag.get('danger') %}
+        <div class="alert alert-danger">
+            {{ flashMessage }}
+        </div>
+    {% endfor %}
+    <div>
+        <div>
+            {{ validatedMessages|length }} messages en ligne.
+        </div>
+        {% for valMes in validatedMessages %}
+            <div>
+                <div>
+                    <div>
+                        D&eacute;pos&eacute; par {{ valMes.author }} le {{ valMes.date|date("d/m/Y") }}
+                        <a href="{{ path('chessy_web_guest_book_admin_toggle', {'id': valMes.id}) }}" class="btn btn-info">Désactiver</a>
+                        <a href="{{ path('chessy_web_guest_book_admin_delete', {'id': valMes.id}) }}" class="btn btn-danger">Supprimer</a>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <blockquote>
+                    {{ valMes.message|nl2br }}
+                </blockquote>
+            </div>
+        {% endfor %}
+    </div>
+    <div>
+        <div class="alert alert-info">
+            {{ unvalidatedMessages|length }} messages en attente de validation.
+        </div>
+        {% for unvalMes in unvalidatedMessages %}
+            <div>
+                <div>
+                    <div>
+                        D&eacute;pos&eacute; par {{ unvalMes.author }} le {{ unvalMes.date|date("d/m/Y") }}
+
+                        <a href="{{ path('chessy_web_guest_book_admin_toggle', {'id': unvalMes.id}) }}" class="btn btn-success">Activer</a>
+                        <a href="{{ path('chessy_web_guest_book_admin_delete', {'id': unvalMes.id}) }}" class="btn btn-danger">Supprimer</a>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <blockquote>
+                    {{ unvalMes.message|nl2br }}
+                </blockquote>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

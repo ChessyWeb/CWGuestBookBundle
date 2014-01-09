@@ -1,0 +1,25 @@
+{% extends "ChessyWebGuestBookBundle::layout.html.twig" %}
+
+{% block content %}
+    {% for flashMessage in app.session.flashbag.get('info') %}
+        <div class="alert alert-info">
+            {{ flashMessage }}
+        </div>
+    {% endfor %}
+    <a href="{{ path('chessy_web_guest_book_add') }}">Ajouter votre message</a><br/>
+    <div>
+        {% for message in messages %}
+            <div>
+                D&eacute;pos&eacute; par {{ message.author }} le {{ message.date|date("d/m/Y") }}
+            </div>
+            <div>
+                <blockquote>
+                    {{ message.message|nl2br }}
+                </blockquote>
+            </div>
+        {% endfor %}
+        {% if messages|length == 0 %}
+            Pas de message pour le moment... Ajoutez le votre !
+        {% endif %}
+    </div>
+{% endblock %}
