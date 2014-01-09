@@ -5,6 +5,8 @@ Guest Book bundle for Symfony 2.x, handling message submission, mail notificatio
 
 [![Build Status](https://travis-ci.org/ChessyWeb/CWGuestBookBundle.png?branch=master)](https://travis-ci.org/ChessyWeb/CWGuestBookBundle)
 
+![SensioLabs Insight Rating](https://insight.sensiolabs.com/projects/29cdf30c-dbec-4f9f-b13a-63c6620a00d3/big.png)
+
 Installation
 -----------------
 
